@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fruit/Vegetable Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+
+</head>
+<body>
+    <h1>Fruit/Vegetable Classification</h1>
+    <form class="grid" action="/predict" method="POST" enctype="multipart/form-data">
+        {% if image_filename %}
+            <center>
+                <h3 style="color: blue;">it is a {{ name }}</h3>
+                <img src="{{ url_for('static', filename=image_filename) }}" alt="Uploaded Image" style="max-width: 300px;">
+            </center>
+        {% endif %}
+        <label for="image">Upload an image:</label>
+        <input type="file" name="image" id="image" accept="image/*">
+        <center><input type="submit" class="file_submit"></center>
+    </form>
+</body>
+</html>
+
